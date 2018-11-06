@@ -42,4 +42,8 @@ NOte: you can set up nodejs, mongodb, nginx (not the SSL part, but you don't nee
     #smtpd_banner = $myhostname ESMTP $mail_name
     uncomment it (remove the "#"), and change it to suit your needs, then run this:
     sudo service postfix restart
- 6. a great article regarding how to forward postfix received message to http server; http://brianbrunner.com/automation/postfix/email/2013/09/09/postfix.html. and then nodejs mailparser https://github.com/nodemailer/mailparser to parse it. Alternatively, one can use nodejs mailin as mail server.
+ 6. in the mian.cf
+    myhostname=somehostid.example.com
+    mydestination = localhost, $myhostname
+    need to include localhost, see https://serverfault.com/questions/179419/postfix-recipient-address-rejected-user-unknown-in-local-recipient-table
+ 7. a great article regarding how to forward postfix received message to http server; http://brianbrunner.com/automation/postfix/email/2013/09/09/postfix.html. and then nodejs mailparser https://github.com/nodemailer/mailparser to parse it. Alternatively, one can use nodejs mailin as mail server.
