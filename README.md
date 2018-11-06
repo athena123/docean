@@ -35,11 +35,11 @@ NOte: you can set up nodejs, mongodb, nginx (not the SSL part, but you don't nee
 1. create an MX record under the domain. Tool for test mail server set up https://mxtoolbox.com/diagnostic.aspx
 2.  update the droplet to the full domain name, e.g., abc.example.com for SMTP Reverse DNS Resolution	
 3. https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-on-ubuntu-18-04
-4. using postfix https://tecadmin.net/setup-catch-all-email-account-in-postfix/
+4. using postfix set up catch all https://tecadmin.net/setup-catch-all-email-account-in-postfix/
 5. edit /etc/postfix/main.cf to makepass the mxtoolbox.com  SMTP Banner check test.
     sudo nano /etc/postfix/main.cf
     find the line that reads
     #smtpd_banner = $myhostname ESMTP $mail_name
     uncomment it (remove the "#"), and change it to suit your needs, then run this:
     sudo service postfix restart
- 6. a great article regarding how to forward postfix received message to http server; and then nodejs mailparser https://github.com/nodemailer/mailparser to parse it. Alternatively, one can use nodejs mailin as mail server.
+ 6. a great article regarding how to forward postfix received message to http server; http://brianbrunner.com/automation/postfix/email/2013/09/09/postfix.html. and then nodejs mailparser https://github.com/nodemailer/mailparser to parse it. Alternatively, one can use nodejs mailin as mail server.
