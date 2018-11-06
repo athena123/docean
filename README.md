@@ -42,3 +42,4 @@ NOte: you can set up nodejs, mongodb, nginx (not the SSL part, but you don't nee
     #smtpd_banner = $myhostname ESMTP $mail_name
     uncomment it (remove the "#"), and change it to suit your needs, then run this:
     sudo service postfix restart
+ 6. a great article regarding how to forward postfix received message to http server; and then nodejs mailparser https://github.com/nodemailer/mailparser to parse it. Alternatively, one can use nodejs mailin as mail server.
