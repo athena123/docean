@@ -46,4 +46,8 @@ NOte: you can set up nodejs, mongodb, nginx (not the SSL part, but you don't nee
     myhostname=somehostid.example.com
     mydestination = localhost, $myhostname
     need to include localhost, see https://serverfault.com/questions/179419/postfix-recipient-address-rejected-user-unknown-in-local-recipient-table
- 7. a great article regarding how to forward postfix received message to http server; http://brianbrunner.com/automation/postfix/email/2013/09/09/postfix.html. and then nodejs mailparser https://github.com/nodemailer/mailparser to parse it. Alternatively, one can use nodejs mailin as mail server.
+ 7. a great article regarding how to forward postfix received message to http server; http://brianbrunner.com/automation/postfix/email/2013/09/09/postfix.html. In my set up, I set up a cacth all entry in the virtual table, /etc/postfix/virtual, @exmaple.com        curl_email, and then Open up the file /etc/aliases and enter the following line
+
+curl_email: "|curl --data-binary @- http://example.com/email_received" after setting /etc/aliases, run command sudo newaliases to reload it.
+ 
+ Can use nodejs mailparser https://github.com/nodemailer/mailparser to parse it. Alternatively, one can use nodejs mailin as mail server.
